@@ -29,6 +29,8 @@ export const columns = [
 
 export const SORTABLE_COLUMNS = [
     ColumnType.Title,
+    ColumnType.What,
+    ColumnType.With,
     ColumnType.Where,
     ColumnType.When,
 ]
@@ -71,6 +73,14 @@ export const orderedList = derived(
                 case ColumnType.Title:
                     valueA = a.title || '';
                     valueB = b.title || '';
+                    break;
+                case ColumnType.What:
+                    valueA = (a.what ?? []).join(', ') || '';
+                    valueB = (b.what ?? []).join(', ') || '';
+                    break;
+                case ColumnType.With:
+                    valueA = (a.with ?? []).join(', ') || '';
+                    valueB = (b.with ?? []).join(', ') || '';
                     break;
                 case ColumnType.Where:
                     valueA = a.where || '';

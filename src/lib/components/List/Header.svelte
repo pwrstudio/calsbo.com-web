@@ -3,8 +3,17 @@
   import { columns } from "."
 </script>
 
-<tr>
+<div class="header-row">
   {#each columns as column}
     <HeaderItem title={column.title} columnType={column.columnType} />
   {/each}
-</tr>
+</div>
+
+<style lang="scss">
+  .header-row {
+    display: flex;
+    padding-bottom: 0.5em;
+    // padding-top: 1em;
+    border-bottom: 1px solid var(--color-border);
+  }
+</style>

@@ -1,5 +1,4 @@
 <script lang="ts">
-  import LastUpdated from "./LastUpdated.svelte"
   export let pageList: any[]
   export let siteLastUpdated: string
 </script>
@@ -13,12 +12,12 @@
   {/each}
 </div>
 
-<LastUpdated {siteLastUpdated} />
-
 <style lang="scss">
   .header {
     display: flex;
+    padding-bottom: 1em;
     margin-bottom: 1em;
+    border-bottom: 1px solid var(--color-border);
 
     h1 {
       font-size: var(--font-size);
@@ -28,6 +27,7 @@
     }
 
     a {
+      color: inherit;
       font-size: var(--font-size);
       margin-right: 1em;
     }

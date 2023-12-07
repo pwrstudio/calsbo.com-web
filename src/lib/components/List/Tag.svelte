@@ -1,13 +1,7 @@
 <script lang="ts">
-  import { searchTerm } from "."
-
   export let tag: string
-
-  const setSearchTerm = () => {
-    searchTerm.set(tag)
-  }
 </script>
 
-<button class="tag" on:click={setSearchTerm}>
+<span class="tag">
   {tag}
-</button>
+</span>

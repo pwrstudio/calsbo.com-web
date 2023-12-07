@@ -10,6 +10,8 @@
 <style lang="scss">
   .last-updated {
     font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
     margin-bottom: 1em;
+    font-size: 12px;
   }
 </style>

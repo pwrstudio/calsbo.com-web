@@ -11,15 +11,15 @@
 
 <Search />
 
-<table>
+<div class="list">
   <Header />
   {#each $orderedList as item}
     <Item {item} />
   {/each}
-</table>
+</div>
 
 <style>
-  table {
+  .list {
     border-spacing: 0 20px;
     width: 100%;
   }

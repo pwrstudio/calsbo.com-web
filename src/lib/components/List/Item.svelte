@@ -5,17 +5,22 @@
   export let item: ItemType
 </script>
 
-<tr>
-  <td class="title"><ItemLink {item} /></td>
-  <td class="what"><Tags tags={item.what ?? []} /></td>
-  <td class="with"><Tags tags={item.with ?? []} /></td>
-  <td class="where">{item.where ?? ""}</td>
-  <td class="when">{item.when ?? ""}</td>
-</tr>
+<div class="row">
+  <div class="cell title"><ItemLink {item} /></div>
+  <div class="cell what"><Tags tags={item.what ?? []} /></div>
+  <div class="cell with"><Tags tags={item.with ?? []} /></div>
+  <div class="cell where">{item.where ?? ""}</div>
+  <div class="cell when">{item.when ?? ""}</div>
+</div>
 
 <style lang="scss">
-  tr {
-    td {
+  .row {
+    display: flex;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    border-bottom: 1px solid var(--color-border);
+
+    .cell {
       &.title {
         width: 30%;
       }

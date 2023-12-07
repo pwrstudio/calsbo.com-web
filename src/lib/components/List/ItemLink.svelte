@@ -17,3 +17,14 @@
     {item.title}
   </a>
 {/if}
+
+<style lang="scss">
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+</style>

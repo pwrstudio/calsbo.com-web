@@ -1,16 +1,10 @@
 <script lang="ts">
   import { ColumnType, OrderDirection } from "$lib/enums"
-  import {
-    orderColumn,
-    orderDirection,
-    SORTABLE_COLUMNS,
-    FILTERABLE_COLUMNS,
-  } from "."
+  import { orderColumn, orderDirection, SORTABLE_COLUMNS } from "."
   export let title: string
   export let columnType: ColumnType
 
   const sortable = SORTABLE_COLUMNS.includes(columnType)
-  const filterable = FILTERABLE_COLUMNS.includes(columnType)
 
   const setOrderColumn = () => {
     if ($orderColumn === columnType) {
@@ -26,22 +20,45 @@
   }
 </script>
 
-<th class:sortable on:click={setOrderColumn}>
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div
+  class="header-cell {ColumnType[columnType].toLowerCase()}"
+  class:sortable
+  on:click={setOrderColumn}
+>
+  {title}
   {#if $orderColumn === columnType}
     {#if $orderDirection === OrderDirection.Ascending}
-      (u)
+      ↑
     {:else}
-      (d)
+      ↓
     {/if}
   {/if}
-  {title}
-</th>
+</div>
 
 <style lang="scss">
-  th {
+  .header-cell {
     text-align: left;
     user-select: none;
     pointer-events: none;
+    font-weight: bold;
+
+    &.title {
+      width: 30%;
+    }
+    &.what {
+      width: 20%;
+    }
+    &.with {
+      width: 20%;
+    }
+    &.where {
+      width: 20%;
+    }
+    &.when {
+      width: 10%;
+    }
 
     &.sortable {
       pointer-events: all;
