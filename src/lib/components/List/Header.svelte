@@ -13,7 +13,6 @@
   .header-row {
     display: flex;
     padding-bottom: 0.5em;
-    // padding-top: 1em;
     border-bottom: 1px solid var(--color-border);
   }
 </style>

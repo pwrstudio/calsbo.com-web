@@ -1,17 +1,42 @@
 <script lang="ts">
   import Tags from "$lib/components/List/Tags.svelte"
-  import ItemLink from "$lib/components/List/ItemLink.svelte"
   import type { ItemType } from "$lib/types"
   export let item: ItemType
+
+  function getLink() {
+    if (item.type === "article") {
+      return {
+        url: item.slug?.current ?? "",
+        target: "",
+      }
+    } else if (item.type === "link") {
+      return {
+        url: item.link ?? "",
+        target: "_blank",
+      }
+    } else if (item.type === "file") {
+      return {
+        url: item.fileUrl ?? "",
+        target: "_blank",
+      }
+    } else {
+      return {
+        url: "",
+        target: "",
+      }
+    }
+  }
+
+  let link = getLink()
 </script>
 
-<div class="row">
-  <div class="cell title"><ItemLink {item} /></div>
+<a href={link.url} target={link.target} class="row">
+  <div class="cell title">{item.title}</div>
   <div class="cell what"><Tags tags={item.what ?? []} /></div>
   <div class="cell with"><Tags tags={item.with ?? []} /></div>
   <div class="cell where">{item.where ?? ""}</div>
   <div class="cell when">{item.when ?? ""}</div>
-</div>
+</a>
 
 <style lang="scss">
   .row {
@@ -19,6 +44,12 @@
     padding-bottom: 1em;
     padding-top: 1em;
     border-bottom: 1px solid var(--color-border);
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      background-color: var(--color-border);
+    }
 
     .cell {
       &.title {
