@@ -13,7 +13,7 @@
 <div class="search">
   <input
     type="text"
-    placeholder="Search"
+    placeholder="Filter"
     bind:value={term}
     on:input={handleInput}
   />
