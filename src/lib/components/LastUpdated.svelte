@@ -8,10 +8,21 @@
 </div>
 
 <style lang="scss">
+  @import "../styles/responsive.scss";
+
   .last-updated {
-    font-family: "Courier New", Courier, monospace;
+    font-family: Courier, monospace;
+    // background: rgb(255, 255, 0);
+    padding: 2px;
+    font-size: 10px;
+    position: relative;
+    top: 2px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     font-weight: bold;
-    margin-bottom: 1em;
-    font-size: 12px;
+
+    @include screen-size("phone") {
+      display: none;
+    }
   }
 </style>

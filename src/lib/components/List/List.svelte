@@ -13,9 +13,13 @@
 
 <div class="list">
   <Header />
-  {#each $orderedList as item}
-    <Item {item} />
-  {/each}
+  {#if $orderedList.length === 0}
+    <Item item={{ title: "Nothing to show" }} />
+  {:else}
+    {#each $orderedList as item}
+      <Item {item} />
+    {/each}
+  {/if}
 </div>
 
 <style>

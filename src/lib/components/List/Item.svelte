@@ -30,7 +30,7 @@
   let link = getLink()
 </script>
 
-<a href={link.url} target={link.target} class="row">
+<a href={link.url} class:linked={link.url} target={link.target} class="row">
   <div class="cell title">{item.title}</div>
   <div class="cell what"><Tags tags={item.what ?? []} /></div>
   <div class="cell with"><Tags tags={item.with ?? []} /></div>
@@ -39,33 +39,65 @@
 </a>
 
 <style lang="scss">
+  @import "../../styles/responsive.scss";
+
   .row {
     display: flex;
-    padding-bottom: 1em;
-    padding-top: 1em;
     border-bottom: 1px solid var(--color-border);
     text-decoration: none;
     color: inherit;
+    padding-bottom: 1.5em;
+    padding-top: 1.5em;
 
-    &:hover {
-      background-color: var(--color-border);
+    &.linked {
+      &:hover {
+        background-color: var(--color-border);
+        color: var(--color-accent);
+        text-decoration: underline;
+
+        // .title::before {
+        //   content: "* ";
+        // }
+      }
     }
 
     .cell {
+      padding-right: 20px;
+      height: 100%;
+
       &.title {
         width: 30%;
+        // font-weight: bold;
+        font-style: italic;
+        padding-left: 1ch;
+
+        @include screen-size("phone") {
+          width: 40%;
+        }
       }
       &.what {
         width: 20%;
+        @include screen-size("phone") {
+          width: 30%;
+        }
       }
       &.with {
         width: 20%;
+        @include screen-size("phone") {
+          display: none;
+        }
       }
       &.where {
-        width: 20%;
+        width: 15%;
+        @include screen-size("phone") {
+          display: none;
+        }
       }
       &.when {
-        width: 10%;
+        width: 15%;
+        @include screen-size("phone") {
+          width: 30%;
+        }
       }
     }
   }

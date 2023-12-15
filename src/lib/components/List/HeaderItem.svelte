@@ -38,26 +38,46 @@
 </div>
 
 <style lang="scss">
+  @import "../../styles/responsive.scss";
+
   .header-cell {
     text-align: left;
     user-select: none;
     pointer-events: none;
     font-weight: bold;
+    text-transform: uppercase;
 
     &.title {
       width: 30%;
+      padding-left: 1ch;
+
+      @include screen-size("phone") {
+        width: 40%;
+      }
     }
     &.what {
       width: 20%;
+      @include screen-size("phone") {
+        width: 30%;
+      }
     }
     &.with {
       width: 20%;
+      @include screen-size("phone") {
+        display: none;
+      }
     }
     &.where {
-      width: 20%;
+      width: 15%;
+      @include screen-size("phone") {
+        display: none;
+      }
     }
     &.when {
-      width: 10%;
+      width: 15%;
+      @include screen-size("phone") {
+        width: 30%;
+      }
     }
 
     &.sortable {

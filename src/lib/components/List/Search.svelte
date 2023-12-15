@@ -18,8 +18,10 @@
     on:input={handleInput}
   />
 
-  <button on:click={() => searchTerm.set("")}>X</button>
-  <div class="count">{$orderedList.length}/{$baseList.length} shown</div>
+  {#if term}
+    <button on:click={() => searchTerm.set("")}>✕</button>
+    <div class="count">{$orderedList.length}/{$baseList.length} shown</div>
+  {/if}
 </div>
 
 <style lang="scss">
@@ -30,14 +32,20 @@
 
     input {
       font-family: var(--font-family);
+      font-size: var(--font-size);
       border: 1px solid var(--color-border);
-      outline: none;
-      padding: 0.5em;
+      padding: 1ch;
       margin-right: 0.5em;
+      background: var(--white);
+
+      &:focus {
+        outline: 2px solid var(--color-accent);
+      }
     }
 
     button {
       font-family: var(--font-family);
+      font-size: var(--font-size);
       border: 1px solid var(--color-border);
       outline: none;
       padding: 0.5em;

@@ -1,35 +1,56 @@
 <script lang="ts">
+  import LastUpdated from "./LastUpdated.svelte"
   export let pageList: any[]
   export let siteLastUpdated: string
 </script>
 
-<div class="header">
-  <h1>Calum Bowden</h1>
-  {#each pageList as page}
-    <a href={page.slug?.current ?? ""} data-sveltekit-preload-data>
-      {page.title}
-    </a>
-  {/each}
-</div>
+<header>
+  <div>
+    <h1><a href="/" data-sveltekit-preload-data>Calum Bowden</a></h1>
+    {#each pageList as page}
+      <a href={page.slug?.current ?? ""} data-sveltekit-preload-data>
+        {page.title}
+      </a>
+    {/each}
+  </div>
+  <LastUpdated {siteLastUpdated} />
+</header>
 
 <style lang="scss">
-  .header {
+  @import "../styles/responsive.scss";
+
+  header {
     display: flex;
-    padding-bottom: 1em;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 1em;
+    padding-bottom: 1em;
     border-bottom: 1px solid var(--color-border);
+
+    div {
+      width: 50%;
+      display: flex;
+      @include screen-size("phone") {
+        width: 100%;
+      }
+    }
 
     h1 {
       font-size: var(--font-size);
       padding: 0;
       margin: 0;
-      margin-right: 1em;
     }
 
     a {
       color: inherit;
       font-size: var(--font-size);
-      margin-right: 1em;
+      margin-right: 1ch;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--color-accent);
+        text-decoration: underline;
+      }
     }
   }
 </style>
