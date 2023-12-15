@@ -45,7 +45,7 @@
     user-select: none;
     pointer-events: none;
     font-weight: bold;
-    text-transform: uppercase;
+    // text-transform: uppercase;
 
     &.title {
       width: 30%;

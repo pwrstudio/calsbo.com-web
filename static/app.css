@@ -17,17 +17,15 @@
 
   * {
     box-sizing: border-box;
-    -webkit-tap-highlight-color: var(--color-secondary);
+    -webkit-tap-highlight-color: var(--color-accent);
     /* scroll-behavior: smooth; */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    /* -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; */
   }
 
   *::selection {
     background: var(--grey);
   }
-
-
 
  body {
     margin: 0;
@@ -37,4 +35,8 @@
     color: var(--black);
     background-color: var(--white);
     overscroll-behavior-y: none;
+  }
+
+  figure {
+    margin: 1em 0;
   }
