@@ -13,6 +13,6 @@
   .header-row {
     display: flex;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px dashed var(--color-border);
   }
 </style>

@@ -27,15 +27,18 @@
 
 <style lang="scss">
   h1 {
-    margin-top: 2em;
+    margin-top: 1em;
     font-size: var(--font-size);
     margin-bottom: 0.5em;
+    font-weight: normal;
+    padding-bottom: 1em;
+    border-bottom: 1px dashed var(--color-border);
+    max-width: 70ch;
   }
 
   .content {
     margin-top: 2em;
     min-height: 100vh;
     max-width: 70ch;
-    font-family: "Times New Roman", Times, serif;
   }
 </style>

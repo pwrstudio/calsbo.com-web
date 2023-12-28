@@ -25,7 +25,7 @@
     align-items: center;
     margin-bottom: 1em;
     padding-bottom: 1em;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px dashed var(--color-border);
 
     div {
       width: 50%;
@@ -39,6 +39,10 @@
       font-size: var(--font-size);
       padding: 0;
       margin: 0;
+      text-transform: uppercase;
+      font-weight: normal;
+      // font-style: italic;
+      // color: var(--color-highlight);
     }
 
     a {
@@ -49,7 +53,7 @@
 
       &:hover {
         color: var(--color-accent);
-        text-decoration: underline;
+        // text-decoration: underline;
       }
     }
   }

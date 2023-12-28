@@ -33,20 +33,20 @@
     input {
       font-family: var(--font-family);
       font-size: var(--font-size);
-      border: 1px solid var(--color-border);
+      border: 1px dashed var(--color-border);
       padding: 1ch;
       margin-right: 0.5em;
       background: var(--white);
 
       &:focus {
-        outline: 2px solid var(--color-accent);
+        outline: 2px dashed var(--color-accent);
       }
     }
 
     button {
       font-family: var(--font-family);
       font-size: var(--font-size);
-      border: 1px solid var(--color-border);
+      border: 1px dashed var(--color-border);
       outline: none;
       padding: 0.5em;
       margin-right: 0.5em;
@@ -60,7 +60,7 @@
 
     .count {
       font-family: var(--font-family);
-      border: 1px solid var(--color-border);
+      border: 1px dashed var(--color-border);
       outline: none;
       padding: 0.5em;
       margin-right: 0.5em;
