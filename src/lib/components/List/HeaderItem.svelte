@@ -60,7 +60,7 @@
     &.what {
       width: 20%;
       @include screen-size("phone") {
-        width: 30%;
+        width: 40%;
       }
     }
 
@@ -81,7 +81,7 @@
     &.when {
       width: 15%;
       @include screen-size("phone") {
-        width: 30%;
+        width: 20%;
       }
     }
 
