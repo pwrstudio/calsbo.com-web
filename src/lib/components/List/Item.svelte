@@ -96,7 +96,9 @@
           display: none;
         }
       }
+
       &.when {
+        padding-right: 0;
         width: 15%;
         @include screen-size("phone") {
           width: 20%;
