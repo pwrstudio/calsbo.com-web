@@ -12,10 +12,10 @@
 </script>
 
 {#key currentPost}
-  <Metadata page={currentPost} />
+  <Metadata page={currentPost} globalPage={pageList} />
 {/key}
 
-<Header {pageList} {siteLastUpdated} />
+<Header pageList={pageList.pages} {siteLastUpdated} />
 
 <h1>{currentPost.title}</h1>
 
@@ -23,7 +23,7 @@
   {@html renderBlockText(currentPost.content?.content ?? [])}
 </div>
 
-<Footer {pageList} {siteLastUpdated} />
+<Footer pageList={pageList.pages} {siteLastUpdated} />
 
 <style lang="scss">
   h1 {

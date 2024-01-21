@@ -7,7 +7,7 @@ export async function load({ params }) {
     const lastUpdatedPost = await loadData("*[] | order(_updatedAt desc)[0]", {})
 
     const siteLastUpdated = lastUpdatedPost._updatedAt
-    const pageList = pageListDoc.pages
+    const pageList = pageListDoc
 
     return {
         pageList,

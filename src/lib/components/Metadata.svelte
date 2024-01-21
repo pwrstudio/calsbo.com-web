@@ -1,12 +1,19 @@
 <script lang="ts">
   import truncate from "lodash/truncate.js"
-  import { toPlainText } from "$lib/modules/sanity"
+  import { toPlainText, urlFor } from "$lib/modules/sanity"
   export let page: any = {}
+  export let globalPage: any
 
-  const DEFAULT_DESCRIPTION = "CALUM BOWDEN"
   const BASE_TITLE = "CALUM BOWDEN"
-  const DEFAULT_IMAGE = ""
-  const BASE_URL = "https://calsbo.com"
+  const DEFAULT_DESCRIPTION = truncate(
+    toPlainText(globalPage.content?.content ?? ""),
+    {
+      length: 240,
+      separator: /.? +/,
+    },
+  )
+  const DEFAULT_IMAGE = urlFor(globalPage?.featuredImage).url() || ""
+  const BASE_URL = "https://calsbo.com/"
 
   /**
    * Returns the formatted title based on the current language.

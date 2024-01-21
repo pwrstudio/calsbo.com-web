@@ -6,6 +6,6 @@
   const { siteLastUpdated, pageList, itemList } = data
 </script>
 
-<Metadata />
-<Header {pageList} {siteLastUpdated} />
+<Metadata globalPage={pageList} />
+<Header pageList={pageList.pages} {siteLastUpdated} />
 <List {itemList} />
