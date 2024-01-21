@@ -43,7 +43,7 @@
 
   .row {
     display: flex;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px dashed var(--color-border);
     text-decoration: none;
     color: inherit;
     padding-bottom: 1.5em;
@@ -51,9 +51,9 @@
 
     &.linked {
       &:hover {
-        background-color: var(--color-border);
+        background-color: var(--color-hover);
         color: var(--color-accent);
-        text-decoration: underline;
+        // text-decoration: underline;
 
         // .title::before {
         //   content: "* ";
@@ -68,35 +68,40 @@
       &.title {
         width: 30%;
         // font-weight: bold;
-        font-style: italic;
+        // font-style: italic;
         padding-left: 1ch;
 
         @include screen-size("phone") {
           width: 40%;
         }
       }
+
       &.what {
         width: 20%;
         @include screen-size("phone") {
-          width: 30%;
+          width: 40%;
         }
       }
+
       &.with {
         width: 20%;
         @include screen-size("phone") {
           display: none;
         }
       }
+
       &.where {
         width: 15%;
         @include screen-size("phone") {
           display: none;
         }
       }
+
       &.when {
+        padding-right: 0;
         width: 15%;
         @include screen-size("phone") {
-          width: 30%;
+          width: 20%;
         }
       }
     }

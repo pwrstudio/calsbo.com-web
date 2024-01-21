@@ -33,13 +33,16 @@
     input {
       font-family: var(--font-family);
       font-size: var(--font-size);
-      border: 1px solid var(--color-border);
+      border: 1px dashed var(--color-border);
       padding: 1ch;
       margin-right: 0.5em;
       background: var(--white);
+      outline: none;
 
       &:focus {
-        outline: 2px solid var(--color-accent);
+        border: 1px solid var(--color-accent);
+        outline: none;
+        color: var(--color-accent);
       }
     }
 
@@ -54,7 +57,7 @@
       background: var(--white);
 
       &:hover {
-        background: var(--color-border);
+        background: var(--color-hover);
       }
     }
 

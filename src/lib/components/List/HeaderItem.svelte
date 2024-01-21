@@ -44,7 +44,8 @@
     text-align: left;
     user-select: none;
     pointer-events: none;
-    font-weight: bold;
+    color: var(--color-emphasis);
+
     // text-transform: uppercase;
 
     &.title {
@@ -55,28 +56,32 @@
         width: 40%;
       }
     }
+
     &.what {
       width: 20%;
       @include screen-size("phone") {
-        width: 30%;
+        width: 40%;
       }
     }
+
     &.with {
       width: 20%;
       @include screen-size("phone") {
         display: none;
       }
     }
+
     &.where {
       width: 15%;
       @include screen-size("phone") {
         display: none;
       }
     }
+
     &.when {
       width: 15%;
       @include screen-size("phone") {
-        width: 30%;
+        width: 20%;
       }
     }
 

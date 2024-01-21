@@ -25,7 +25,7 @@
     align-items: center;
     margin-bottom: 1em;
     padding-top: 1em;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px dashed var(--color-border);
 
     div {
       width: 50%;
@@ -39,6 +39,7 @@
       font-size: var(--font-size);
       padding: 0;
       margin: 0;
+      font-weight: normal;
     }
 
     a {
@@ -49,7 +50,7 @@
 
       &:hover {
         color: var(--color-accent);
-        text-decoration: underline;
+        // text-decoration: underline;
       }
     }
   }

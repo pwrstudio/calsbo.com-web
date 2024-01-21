@@ -1,26 +1,34 @@
 :root {
     /* Base colors */
     --black: rgba(30, 30, 30, 1);
-    --background: rgb(255, 191, 0);
-    --white: rgba(225, 225, 225, 1);
-    --color-border: #cdcdcd;
+    --background: rgb(255, 68, 0);
+    --white: #e1e1e1;
+    --color-border: #9d9d9d;
+    --color-hover: rgb(216, 216, 216);
+
     /* --color-accent: #551A8B; */
-    --color-accent: blue;
+    --color-accent: rgb(124, 102, 0);
+    --color-emphasis: #727272;
+    --color-highlight: #4d877b;
 
     /* Font families */
-    --font-family:  Helvetica, Arial, sans-serif;
+    --font-family:  'FKRaster', Helvetica, Arial, sans-serif;
     /* "courier new", "Berkeley Mono Trial",  */
     
     /* Font sizes */
-    --font-size: 16px;
+    --font-size: 18px;
+
+    @media screen and (max-width: 800px) {
+      --font-size: 14px;
+    }
   }
 
   * {
     box-sizing: border-box;
     -webkit-tap-highlight-color: var(--color-accent);
     /* scroll-behavior: smooth; */
-    /* -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale; */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   *::selection {
@@ -39,4 +47,9 @@
 
   figure {
     margin: 1em 0;
+    max-width: 90vw;
+  }
+
+  img {
+    max-width: 90vw;
   }
