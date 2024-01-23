@@ -1,10 +1,11 @@
 <script lang="ts">
+  import type { ItemType } from "$lib/types"
   import truncate from "lodash/truncate.js"
   import { toPlainText, urlFor } from "$lib/modules/sanity"
-  export let page: any = {}
-  export let globalPage: any
+  export let page: ItemType = {}
+  export let globalPage: ItemType
 
-  const BASE_TITLE = "CALUM BOWDEN"
+  const BASE_TITLE = "Calum Bowden"
   const DEFAULT_DESCRIPTION = truncate(
     toPlainText(globalPage.content?.content ?? ""),
     {
@@ -12,26 +13,26 @@
       separator: /.? +/,
     },
   )
-  const DEFAULT_IMAGE = urlFor(globalPage?.featuredImage).url() || ""
+  const DEFAULT_IMAGE = urlFor(globalPage?.featuredImage).width(800).url() || ""
   const BASE_URL = "https://calsbo.com/"
 
   /**
    * Returns the formatted title based on the current language.
    *
-   * @param {any} p - The object containing title details.
+   * @param {ItemType} p - The object containing title details.
    * @returns {string} - The formatted title.
    */
-  const getTitle = (p: any) => {
+  const getTitle = (p: ItemType): string => {
     return (p.title ? p.title + " | " : "") + BASE_TITLE
   }
 
   /**
    * Retrieves and formats the description based on the current language, truncating it to 240 characters.
    *
-   * @param {any} p - The object containing description details.
+   * @param {ItemType} p - The object containing description details.
    * @returns {string} - The truncated description.
    */
-  const getDescription = (p: any) => {
+  const getDescription = (p: ItemType): string => {
     let d = p.content?.content
       ? toPlainText(p.content.content)
       : DEFAULT_DESCRIPTION
@@ -45,20 +46,21 @@
   /**
    * Constructs a URL based on the given page type and slug.
    *
-   * @param {any} p - The object containing URL details.
+   * @param {ItemType} p - The object containing URL details.
    * @returns {string} - The constructed URL.
    */
-  const getUrl = (p: any) => {
+  const getUrl = (p: ItemType): string => {
     return BASE_URL + (p.slug?.current || "")
   }
 
   /**
    * Retrieves the image URL if available, or returns a default image URL.
    *
-   * @param {any} p - The object containing image details.
+   * @param {ItemType} p - The object containing image details.
    * @returns {string} - The image URL or default image URL.
    */
-  const getImage = (p: any) => {
+  const getImage = (p: ItemType): string => {
+    if (p.featuredImage) return urlFor(p.featuredImage).width(800).url()
     return DEFAULT_IMAGE
   }
 

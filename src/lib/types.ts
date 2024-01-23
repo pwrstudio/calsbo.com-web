@@ -23,6 +23,17 @@ type Slug = {
     _type: 'slug';
 };
 
+type ImageAsset = {
+    _ref: string;
+    _type: 'reference';
+};
+
+type Image = {
+    _type: 'image';
+    _key?: string;
+    asset: ImageAsset;
+};
+
 export interface ItemType {
     _type: 'item';
     _id: string;
@@ -37,6 +48,7 @@ export interface ItemType {
     when: string;
     date: string;
     content: ContentEditor;
+    featuredImage: Image,
     link: string;
     fileUrl: string;
     slug: Slug;
