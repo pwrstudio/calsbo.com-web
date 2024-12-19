@@ -11,7 +11,7 @@
     {
       length: 240,
       separator: /.? +/,
-    },
+    }
   )
   const DEFAULT_IMAGE = urlFor(globalPage?.featuredImage).width(800).url() || ""
   const BASE_URL = "https://calsbo.com/"

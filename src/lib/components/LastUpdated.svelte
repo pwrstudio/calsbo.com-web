@@ -11,12 +11,9 @@
   @import "../styles/responsive.scss";
 
   .last-updated {
-    // font-family: Courier, monospace;
-    // background: rgb(255, 255, 0);
     padding: 2px;
     font-size: 12px;
     position: relative;
-    // top: 2px;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--color-emphasis);
