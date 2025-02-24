@@ -10,8 +10,12 @@
   export let data
   const { pageList, siteLastUpdated } = data
 
+  const noAuthorSlugs = ["about", "contact"]
+
   let currentPost: ItemType = data.post
   $: currentPost = data.post
+
+  $: console.log(currentPost)
 </script>
 
 {#key currentPost}
@@ -28,8 +32,10 @@
   <!-- Title -->
   <h1>{currentPost.title}</h1>
   <!-- With -->
-  {#if currentPost.with}
-    <p class="subtitle">with {arrayToString(currentPost.with)}</p>
+  {#if currentPost._type === "item"}
+    <p class="subtitle">
+      {arrayToString(["Calum Bowden", ...currentPost.with])}
+    </p>
   {/if}
 </div>
 
