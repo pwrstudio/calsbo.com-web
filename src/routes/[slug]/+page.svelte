@@ -10,12 +10,8 @@
   export let data
   const { pageList, siteLastUpdated } = data
 
-  const noAuthorSlugs = ["about", "contact"]
-
   let currentPost: ItemType = data.post
   $: currentPost = data.post
-
-  $: console.log(currentPost)
 </script>
 
 {#key currentPost}
