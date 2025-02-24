@@ -54,3 +54,7 @@
     width: 100%;
     max-width: 90vw;
   }
+
+  h2, h3 {
+    font-size: var(--font-size);
+  }

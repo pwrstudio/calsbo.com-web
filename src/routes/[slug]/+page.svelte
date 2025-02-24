@@ -1,9 +1,12 @@
 <script lang="ts">
+  import { arrayToString } from "$lib/modules/utils"
+  import type { ItemType } from "$lib/types"
   import { renderBlockText } from "$lib/modules/sanity.js"
+
   import Footer from "$lib/components/Footer.svelte"
   import Header from "$lib/components/Header.svelte"
   import Metadata from "$lib/components/Metadata.svelte"
-  import type { ItemType } from "$lib/types"
+
   export let data
   const { pageList, siteLastUpdated } = data
 
@@ -17,7 +20,11 @@
 
 <Header pageList={pageList.pages} {siteLastUpdated} />
 
-<h1>{currentPost.title}</h1>
+<div class="title-section">
+  <p class="subtitle">{currentPost.when}</p>
+  <h1>{currentPost.title}</h1>
+  <p class="subtitle">with {arrayToString(currentPost.with)}</p>
+</div>
 
 <div class="content">
   {@html renderBlockText(currentPost.content?.content ?? [])}
@@ -26,14 +33,28 @@
 <Footer pageList={pageList.pages} {siteLastUpdated} />
 
 <style lang="scss">
-  h1 {
-    margin-top: 1em;
-    font-size: var(--font-size);
+  .title-section {
     margin-bottom: 0.5em;
-    font-weight: normal;
     padding-bottom: 1em;
-    border-bottom: 1px dashed var(--color-border);
     max-width: 70ch;
+    border-bottom: 1px dashed var(--color-border);
+  }
+
+  h1 {
+    margin-top: 0;
+    font-size: var(--font-size);
+    font-weight: normal;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .subtitle {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-size: var(--font-size-small);
+    color: var(--color-emphasis);
   }
 
   .content {
