@@ -3,20 +3,20 @@
   import type { ItemType } from "$lib/types"
   export let item: ItemType
 
-  function getLink() {
-    if (item.type === "article") {
+  function getLink(_item: ItemType) {
+    if (_item.type === "article") {
       return {
-        url: item.slug?.current ?? "",
+        url: _item.slug?.current ?? "",
         target: "",
       }
-    } else if (item.type === "link") {
+    } else if (_item.type === "link") {
       return {
-        url: item.link ?? "",
+        url: _item.link ?? "",
         target: "_blank",
       }
-    } else if (item.type === "file") {
+    } else if (_item.type === "file") {
       return {
-        url: item.fileUrl ?? "",
+        url: _item.fileUrl ?? "",
         target: "_blank",
       }
     } else {
@@ -27,7 +27,7 @@
     }
   }
 
-  let link = getLink()
+  $: link = getLink(item)
 </script>
 
 <a href={link.url} class:linked={link.url} target={link.target} class="row">
@@ -53,11 +53,6 @@
       &:hover {
         background-color: var(--color-hover);
         color: var(--color-accent);
-        // text-decoration: underline;
-
-        // .title::before {
-        //   content: "* ";
-        // }
       }
     }
 
@@ -67,8 +62,6 @@
 
       &.title {
         width: 30%;
-        // font-weight: bold;
-        // font-style: italic;
         padding-left: 1ch;
 
         @include screen-size("phone") {

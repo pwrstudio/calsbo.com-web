@@ -21,9 +21,16 @@
 <Header pageList={pageList.pages} {siteLastUpdated} />
 
 <div class="title-section">
-  <p class="subtitle">{currentPost.when}</p>
+  <!-- Date -->
+  {#if currentPost.when}
+    <p class="subtitle">{currentPost.when}</p>
+  {/if}
+  <!-- Title -->
   <h1>{currentPost.title}</h1>
-  <p class="subtitle">with {arrayToString(currentPost.with)}</p>
+  <!-- With -->
+  {#if currentPost.with}
+    <p class="subtitle">with {arrayToString(currentPost.with)}</p>
+  {/if}
 </div>
 
 <div class="content">
