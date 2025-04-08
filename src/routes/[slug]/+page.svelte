@@ -30,7 +30,11 @@
   <!-- With -->
   {#if currentPost._type === "item"}
     <p class="subtitle">
-      {arrayToString(["Calum Bowden", ...currentPost.with])}
+      {arrayToString(
+        currentPost.with
+          ? ["Calum Bowden", ...currentPost.with]
+          : ["Calum Bowden"]
+      )}
     </p>
   {/if}
 </div>
